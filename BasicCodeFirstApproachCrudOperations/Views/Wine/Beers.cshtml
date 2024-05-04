@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BasicCodeFirstApproachCrudOperations.Models.Wine.Beer>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BeerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeerDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AlcholPercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufractuingDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ToList())
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeerDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlcholPercentage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManufractuingDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BeerId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BeerId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BeerId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
